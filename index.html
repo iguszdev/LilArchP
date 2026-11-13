@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LilArch — Lekka i nowoczesna dystrybucja oparta na Arch Linux</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        arch: {
+                            500: '#1793d1',
+                            600: '#0f7bb2',
+                            400: '#38bdf8',
+                        },
+                        dark: {
+                            950: '#090b10',
+                            900: '#0f1219',
+                            800: '#161b26',
+                            700: '#1f2737',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-950 text-slate-200 font-sans antialiased selection:bg-arch-500 selection:text-white">
+
+    <!-- Nawigacja -->
+    <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-dark-950/85 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-8 h-8 rounded-lg bg-arch-500/15 border border-arch-500/40 flex items-center justify-center text-arch-400 font-mono font-bold text-lg group-hover:bg-arch-500 group-hover:text-white transition">
+                    L
+                </div>
+                <span class="font-bold text-lg tracking-tight text-white">Lil<span class="text-arch-400">Arch</span></span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#co-to-jest" class="hover:text-white transition">Co to jest</a>
+                <a href="#dlaczego" class="hover:text-white transition">Dlaczego LilArch</a>
+                <a href="#specyfikacja" class="hover:text-white transition">Specyfikacja</a>
+                <a href="#pobierz" class="hover:text-white transition">Pobieranie ISO</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="https://github.com/iguszdev/LilArch" target="_blank" rel="noopener noreferrer"
+                   class="text-sm font-medium text-slate-300 hover:text-white px-3 py-2 transition flex items-center gap-2">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="#pobierz" class="bg-arch-500 hover:bg-arch-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-lg shadow-arch-500/20">
+                    Sprawdź LilArch
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sekcja Hero -->
+    <section class="relative overflow-hidden border-b border-slate-800/80">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-arch-500/15 via-dark-950 to-dark-950 pointer-events-none"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 py-24 md:py-32 relative">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-800 border border-slate-700/80 text-xs font-mono text-arch-400 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    Wydanie 2026.11.11 • Architektura x86_64 • Rolling Release
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
+                    Czysty Arch Linux,<br>
+                    <span class="text-arch-400">bez zbędnego balastu.</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-slate-400 leading-relaxed mb-10 max-w-2xl">
+                    LilArch to lekka, przejrzysta dystrybucja GNU/Linux zbudowana bezpośrednio na fundamentach Arch Linuksa. Daje pełną kontrolę nad systemem, najnowsze pakiety oraz błyskawiczną responsywność od pierwszego uruchomienia.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#pobierz" class="bg-arch-500 hover:bg-arch-600 text-white font-semibold px-7 py-3.5 rounded-lg transition shadow-lg shadow-arch-500/25 flex items-center gap-2">
+                        Pobierz lilarch-2026.11.11-x86_64.iso
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                    </a>
+                    <a href="https://github.com/iguszdev/LilArch" target="_blank" rel="noopener noreferrer"
+                       class="bg-dark-800 hover:bg-dark-700 text-slate-200 border border-slate-700 font-semibold px-6 py-3.5 rounded-lg transition flex items-center gap-2">
+                        Kod źródłowy projektu
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Co to jest LilArch -->
+    <section id="co-to-jest" class="py-24 border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-start">
+                <div class="md:col-span-5">
+                    <p class="text-xs font-mono uppercase tracking-widest text-arch-400 mb-3">01 / Filozofia projektu</p>
+                    <h2 class="text-3xl font-bold text-white tracking-tight mb-4">Czym właściwie jest LilArch?</h2>
+                    <p class="text-slate-400 leading-relaxed">
+                        Większość nowoczesnych systemów operacyjnych narzuca użytkownikowi dziesiątki usług działających w tle, telemetrię oraz preinstalowane aplikacje, których nigdy nie użyjesz. LilArch odwraca ten model.
+                    </p>
+                </div>
+
+                <div class="md:col-span-7 space-y-6 text-slate-300 leading-relaxed">
+                    <p>
+                        <strong class="text-white">LilArch</strong> to niezależna, minimalistyczna dystrybucja oparta na <strong class="text-white">Arch Linux</strong>, zaprojektowana z myślą o użytkownikach, którzy cenią prostotę architektury, pełną przejrzystość konfiguracji oraz maksymalną wydajność sprzętu.
+                    </p>
+                    <p>
+                        System zachowuje pełną kompatybilność z oficjalnymi repozytoriami Arch Linuksa, menedżerem pakietów <code class="font-mono text-sm bg-dark-800 px-1.5 py-0.5 rounded text-arch-400">pacman</code> oraz bazą <strong class="text-white">AUR (Arch User Repository)</strong>, jednocześnie upraszczając start i eliminując zbędny narzut zasobów.
+                    </p>
+
+                    <div class="grid sm:grid-cols-3 gap-4 pt-4">
+                        <div class="bg-dark-900 border border-slate-800 p-4 rounded-xl">
+                            <div class="text-2xl font-bold text-white font-mono">100%</div>
+                            <div class="text-xs text-slate-400 mt-1">Otwarty kod źródłowy dostępny na GitHub</div>
+                        </div>
+                        <div class="bg-dark-900 border border-slate-800 p-4 rounded-xl">
+                            <div class="text-2xl font-bold text-arch-400 font-mono">Rolling</div>
+                            <div class="text-xs text-slate-400 mt-1">Ciągłe aktualizacje bez reinstalacji systemu</div>
+                        </div>
+                        <div class="bg-dark-900 border border-slate-800 p-4 rounded-xl">
+                            <div class="text-2xl font-bold text-emerald-400 font-mono">0 B</div>
+                            <div class="text-xs text-slate-400 mt-1">Telemetrii, śledzenia i reklam w systemie</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dlaczego warto pobrać -->
+    <section id="dlaczego" class="py-24 border-b border-slate-800/80 bg-dark-900/40">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-2xl mb-16">
+                <p class="text-xs font-mono uppercase tracking-widest text-arch-400 mb-3">02 / Kluczowe zalety</p>
+                <h2 class="text-3xl font-bold text-white tracking-tight mb-4">Dlaczego powinieneś pobrać LilArch?</h2>
+                <p class="text-slate-400">
+                    Zaprojektowany zarówno do codziennej pracy programistycznej, jak i do przywrócenia pełnej szybkości starszym laptopom oraz stacjom roboczym.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-dark-900 border border-slate-800 p-7 rounded-2xl hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-arch-500/10 border border-arch-500/30 flex items-center justify-center text-arch-400 font-mono font-bold mb-5">01</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Minimalne zużycie zasobów</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Brak zbędnych demonów działających w tle sprawia, że pamięć RAM i cykle procesora trafiają wyłącznie do Twoich aplikacji, kompilatorów i gier.
+                    </p>
+                </div>
+
+                <div class="bg-dark-900 border border-slate-800 p-7 rounded-2xl hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-arch-500/10 border border-arch-500/30 flex items-center justify-center text-arch-400 font-mono font-bold mb-5">02</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Zawsze najnowsze oprogramowanie</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Dzięki modelowi Rolling Release masz natychmiastowy dostęp do najnowszego jądra Linux, sterowników Mesa, bibliotek systemowych oraz narzędzi deweloperskich.
+                    </p>
+                </div>
+
+                <div class="bg-dark-900 border border-slate-800 p-7 rounded-2xl hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-arch-500/10 border border-arch-500/30 flex items-center justify-center text-arch-400 font-mono font-bold mb-5">03</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Pełna kontrola i brak narzutów</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Ty decydujesz o środowisku graficznym (KDE, GNOME, Hyprland, Sway, Xfce) i każdym zainstalowanym pakiecie. System nie instaluje niczego za Twoimi plecami.
+                    </p>
+                </div>
+
+                <div class="bg-dark-900 border border-slate-800 p-7 rounded-2xl hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-arch-500/10 border border-arch-500/30 flex items-center justify-center text-arch-400 font-mono font-bold mb-5">04</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Ekosystem pacman i AUR</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Szybki menedżer pakietów <code class="font-mono text-xs text-slate-300">pacman</code> oraz dziesiątki tysięcy paczek utrzymywanych przez społeczność w AUR dają dostęp do praktycznie każdego programu na Linuksa.
+                    </p>
+                </div>
+
+                <div class="bg-dark-900 border border-slate-800 p-7 rounded-2xl hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-arch-500/10 border border-arch-500/30 flex items-center justify-center text-arch-400 font-mono font-bold mb-5">05</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Przejrzysty i audytowalny kod</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Cały proces budowania obrazu ISO oraz skrypty konfiguracyjne znajdują się publicznie w repozytorium GitHub. Możesz zajrzeć pod maskę i zbudować własny obraz.
+                    </p>
+                </div>
+
+                <div class="bg-dark-900 border border-slate-800 p-7 rounded-2xl hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-arch-500/10 border border-arch-500/30 flex items-center justify-center text-arch-400 font-mono font-bold mb-5">06</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Idealny do nauki i produkcji</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Czysta struktura katalogów zgodna ze standardami Arch Linuksa i Arch Wiki sprawia, że diagnozowanie i konfiguracja systemu są przewidywalne oraz dobrze udokumentowane.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specyfikacja i wymagania -->
+    <section id="specyfikacja" class="py-24 border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-2xl mb-12">
+                <p class="text-xs font-mono uppercase tracking-widest text-arch-400 mb-3">03 / Wymagania i architektura</p>
+                <h2 class="text-3xl font-bold text-white tracking-tight mb-4">Specyfikacja techniczna</h2>
+                <p class="text-slate-400">
+                    LilArch uruchomi się bez problemu zarówno na nowoczesnej stacji roboczej, jak i na kilkuletnim laptopie.
+                </p>
+            </div>
+
+            <div class="overflow-x-auto border border-slate-800 rounded-2xl">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-dark-900 border-b border-slate-800 text-xs font-mono uppercase text-slate-400">
+                            <th class="py-4 px-6">Parametr</th>
+                            <th class="py-4 px-6">Wymagania minimalne</th>
+                            <th class="py-4 px-6">Konfiguracja zalecana</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/80 text-sm">
+                        <tr class="bg-dark-950/60">
+                            <td class="py-4 px-6 font-medium text-white">Architektura procesora</td>
+                            <td class="py-4 px-6 text-slate-300 font-mono">x86_64 (64-bit)</td>
+                            <td class="py-4 px-6 text-slate-300 font-mono">x86_64 (wielordzeniowy)</td>
+                        </tr>
+                        <tr class="bg-dark-900/30">
+                            <td class="py-4 px-6 font-medium text-white">Pamięć operacyjna (RAM)</td>
+                            <td class="py-4 px-6 text-slate-300">1 GB RAM (tryb tekstowy / lekki WM)</td>
+                            <td class="py-4 px-6 text-slate-300">4 GB RAM lub więcej</td>
+                        </tr>
+                        <tr class="bg-dark-950/60">
+                            <td class="py-4 px-6 font-medium text-white">Przestrzeń dyskowa</td>
+                            <td class="py-4 px-6 text-slate-300">10 GB wolnego miejsca</td>
+                            <td class="py-4 px-6 text-slate-300">25 GB+ na dysku SSD / NVMe</td>
+                        </tr>
+                        <tr class="bg-dark-900/30">
+                            <td class="py-4 px-6 font-medium text-white">Rozruch (Boot)</td>
+                            <td class="py-4 px-6 text-slate-300">UEFI lub Legacy BIOS</td>
+                            <td class="py-4 px-6 text-slate-300">UEFI (GPT)</td>
+                        </tr>
+                        <tr class="bg-dark-950/60">
+                            <td class="py-4 px-6 font-medium text-white">Baza systemu</td>
+                            <td class="py-4 px-6 text-slate-300" colspan="2">Arch Linux (Rolling Release • pacman • systemd)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja Pobierania -->
+    <section id="pobierz" class="py-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-dark-900 border border-slate-800 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-72 h-72 bg-arch-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-arch-500/10 border border-arch-500/30 text-xs font-mono text-arch-400 mb-6">
+                        Oficjalne wydanie • GitHub Releases / Repo
+                    </div>
+
+                    <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                        Pobierz LilArch i sprawdź kod źródłowy
+                    </h2>
+                    <p class="text-slate-400 leading-relaxed mb-8 max-w-2xl">
+                        W oficjalnym repozytorium projektu na GitHubie znajdziesz pełny kod źródłowy dystrybucji oraz gotowy do nagrania na pendrive obraz instalacyjny ISO.
+                    </p>
+
+                    <div class="bg-dark-950 border border-slate-800 rounded-2xl p-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <div class="text-xs font-mono text-slate-500 uppercase mb-1">Nazwa obrazu ISO</div>
+                            <div class="font-mono text-base md:text-lg text-white font-semibold">lilarch-2026.11.11-x86_64.iso</div>
+                            <div class="text-xs text-slate-400 mt-1">Architektura: 64-bit (AMD64 / Intel 64) • Wersja z dnia 11.11.2026</div>
+                        </div>
+
+                        <a href="https://github.com/iguszdev/LilArch" target="_blank" rel="noopener noreferrer"
+                           class="shrink-0 bg-arch-500 hover:bg-arch-600 text-white font-semibold px-6 py-3.5 rounded-xl transition shadow-lg shadow-arch-500/20 text-center">
+                            Przejdź do GitHuba i pobierz
+                        </a>
+                    </div>
+
+                    <div class="border-t border-slate-800 pt-6">
+                        <h3 class="text-sm font-semibold text-white mb-3">Jak uruchomić obraz po pobraniu?</h3>
+                        <ol class="grid sm:grid-cols-3 gap-4 text-sm text-slate-400">
+                            <li class="bg-dark-950/60 border border-slate-800/80 p-4 rounded-xl">
+                                <span class="text-arch-400 font-mono font-bold block mb-1">Krok 1</span>
+                                Pobierz plik <span class="text-slate-200 font-mono text-xs">lilarch-2026.11.11-x86_64.iso</span> z repozytorium <a href="https://github.com/iguszdev/LilArch" target="_blank" class="text-arch-400 underline">iguszdev/LilArch</a>.
+                            </li>
+                            <li class="bg-dark-950/60 border border-slate-800/80 p-4 rounded-xl">
+                                <span class="text-arch-400 font-mono font-bold block mb-1">Krok 2</span>
+                                Zapisz obraz na nośniku USB (min. 4 GB) przy użyciu narzędzia <span class="text-slate-200">Rufus</span>, <span class="text-slate-200">Ventoy</span> lub polecenia <span class="text-slate-200 font-mono text-xs">dd</span>.
+                            </li>
+                            <li class="bg-dark-950/60 border border-slate-800/80 p-4 rounded-xl">
+                                <span class="text-arch-400 font-mono font-bold block mb-1">Krok 3</span>
+                                Uruchom komputer z pendrive'a (Boot Menu) lub przetestuj system w maszynie wirtualnej (QEMU / VirtualBox).
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer class="border-t border-slate-800/80 py-10 text-sm text-slate-500">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-semibold text-slate-300">LilArch</span>
+                <span>•</span>
+                <span>Dystrybucja GNU/Linux oparta na Arch Linux</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://github.com/iguszdev/LilArch" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition">
+                    github.com/iguszdev/LilArch
+                </a>
+                <a href="#pobierz" class="hover:text-slate-300 transition">lilarch-2026.11.11-x86_64.iso</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
